@@ -1,0 +1,12 @@
+services:
+  zephyr:
+    image: zephyrprojectrtos/zephyr-build
+    container_name: zephyr-dev
+    privileged: true
+    volumes:
+      - ~/Docker/Work/zephyrproject:/workdir
+      - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    stdin_open: true
+    tty: true
