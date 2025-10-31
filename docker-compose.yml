@@ -8,5 +8,7 @@ services:
       - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer
     devices:
       - /dev/bus/usb:/dev/bus/usb
+    ports:
+      - "5900:5900" # <--- exposes VNC port to localhost:5900
     stdin_open: true
     tty: true
