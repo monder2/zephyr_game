@@ -5,7 +5,7 @@ services:
     privileged: true
     volumes:
       - ~/Docker/Work/zephyrproject:/workdir
-      - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer
+      - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/root/STMicroelectronics/STM32Cube/STM32CubeProgrammer
     devices:
       - /dev/bus/usb:/dev/bus/usb
     ports:

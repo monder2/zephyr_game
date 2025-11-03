@@ -1,0 +1,25 @@
+{
+  "name": "Zephyr STM32 DevContainer",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "zephyr",
+  "workspaceFolder": "/workdir",
+  "remoteUser": "root",
+  "runArgs": [
+    "--privileged",
+    "--device=/dev/bus/usb:/dev/bus/usb",
+    "--group-add=plugdev"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "marus25.cortex-debug",
+        "ms-python.python",
+        "nordic-semiconductor.nrf-connect-extension-pack",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools"
+      ]
+    }
+  },
+  "postCreateCommand": "bash -lc 'source /workdir/depandance/zephyr/zephyr-env.sh && west update || true'"
+}
