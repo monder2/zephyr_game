@@ -1,6 +1,6 @@
 services:
   zephyr:
-    image: zephyrprojectrtos/zephyr-build
+    image: monder87/zephyr_game:v1
     container_name: zephyr-dev
     privileged: true
     volumes:
