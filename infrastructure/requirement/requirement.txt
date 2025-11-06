@@ -1,0 +1,16 @@
+Requirements for Docker image
+-----------------------------
+
+Purpose:
+    Lists packages to be installed into the Docker image and records exact versions.
+
+Required Packages:
+
+    # STM32CubeProgrammer
+    # Located in the local folder "infrastructure"
+    # You can update the .zip file with the latest version and rebuild image if needed
+    # Version stm32cubeprogrammer=2.20.0   # package provided by ST
+
+Notes:
+    - STM32CubeProgrammer may require accepting ST's license and/or manual packaging for distribution
+    - STM32CubeProgrammer is used for flashing STM32 boards
