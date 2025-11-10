@@ -1,3 +1,3 @@
 {
-    "cmake.sourceDirectory": "/home/mondher/Docker/Work/zephyrproject/depandance/zephyr/kernel"
+    "cmake.sourceDirectory": "/workdir/depandance/modules/bsim_hw_models/nrf_hw_models"
 }
