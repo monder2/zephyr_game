@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     libxcb1 \
     libx11-6 \
     unzip \
+    minicom \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the offline installer into the container
