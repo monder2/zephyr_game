@@ -8,6 +8,7 @@ services:
       - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/root/STMicroelectronics/STM32Cube/STM32CubeProgrammer
     devices:
       - /dev/bus/usb:/dev/bus/usb
+      - /dev/ttyACM0:/dev/ttyACM0
     environment:
       - UDEV=1
     ports:
