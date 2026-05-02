@@ -1,6 +1,6 @@
 {
   "name": "Zephyr STM32 DevContainer",
-  "dockerComposeFile": ["../docker-compose.yml"],
+  "dockerComposeFile": ["docker-compose.yml"],
   "service": "zephyr",
   "workspaceFolder": "/workdir",
   "remoteUser": "root",
