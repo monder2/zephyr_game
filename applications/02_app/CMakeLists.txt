@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20.0)
 
 # Pulls in the Zephyr build system
-find_package(Zephyr REQUIRED HINTS /workdir/dependence/zephyr)
+find_package(Zephyr REQUIRED HINTS /workdir/dependance/zephyr)
 
 project(app)
 
