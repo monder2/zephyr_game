@@ -1,0 +1,10 @@
+manifest:
+  version: 0.12
+  self:
+    path: .
+  projects:
+    - name: zephyr
+      url: https://github.com/zephyrproject-rtos/zephyr.git
+      path: dependance/zephyr
+      revision: v4.3.0
+      west-commands: scripts/west-commands.yml

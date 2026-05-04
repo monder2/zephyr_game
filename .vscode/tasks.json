@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build 01_app",
+      "type": "shell",
+      "command": "west",
+      "args": [
+        "build",
+        "-b",
+        "nucleo_f401re",
+        "applications/01_app",
+        "-d",
+        "applications/01_app/build",
+        "-p",
+        "always"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build 02_app",
+      "type": "shell",
+      "command": "west",
+      "args": [
+        "build",
+        "-b",
+        "nucleo_f401re",
+        "applications/02_app",
+        "-d",
+        "applications/02_app/build",
+        "-p",
+        "always"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

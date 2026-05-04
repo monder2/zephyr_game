@@ -3,7 +3,8 @@
 
 
 build/
+applications/*/build/
 
-depandance/
+dependance/
 
 requirement/stm32cubeprog-portable2_20_0.tar.gz
