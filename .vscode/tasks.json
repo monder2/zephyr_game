@@ -1,5 +1,17 @@
 {
   "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "board",
+      "description": "Select the board to build for",
+      "default": "nucleo_f401re",
+      "type": "pickString",
+      "options": [
+        "nucleo_f401re",
+        "esp32s3_devkitc/esp32s3/procpu"
+      ]
+    }
+  ],
   "tasks": [
     {
       "label": "Build 01_app",
@@ -8,7 +20,7 @@
       "args": [
         "build",
         "-b",
-        "nucleo_f401re",
+        "${input:board}",
         "applications/01_app",
         "-d",
         "applications/01_app/build",
@@ -37,7 +49,7 @@
       "args": [
         "build",
         "-b",
-        "nucleo_f401re",
+        "${input:board}",
         "applications/02_app",
         "-d",
         "applications/02_app/build",
