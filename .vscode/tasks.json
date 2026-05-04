@@ -19,6 +19,18 @@
       "problemMatcher": []
     },
     {
+      "label": "Flash 01_app",
+      "type": "shell",
+      "command": "west",
+      "args": [
+        "flash",
+        "-d",
+        "applications/01_app/build"
+      ],
+      "dependsOn": "Build 01_app",
+      "problemMatcher": []
+    },
+    {
       "label": "Build 02_app",
       "type": "shell",
       "command": "west",
@@ -33,6 +45,18 @@
         "always"
       ],
       "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Flash 02_app",
+      "type": "shell",
+      "command": "west",
+      "args": [
+        "flash",
+        "-d",
+        "applications/02_app/build"
+      ],
+      "dependsOn": "Build 02_app",
       "problemMatcher": []
     }
   ]
