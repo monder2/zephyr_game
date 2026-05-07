@@ -5,7 +5,8 @@ services:
     privileged: true
     volumes:
       - ../:/workdir
-      - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/root/STMicroelectronics/STM32Cube/STM32CubeProgrammer
+      # STM32-only: mount local STM32CubeProgrammer installation when working with STM32 boards.
+      # - ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer:/root/STMicroelectronics/STM32Cube/STM32CubeProgrammer    devices:
     devices:
       - /dev/bus/usb:/dev/bus/usb
       - /dev/ttyACM0:/dev/ttyACM0
