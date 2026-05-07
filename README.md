@@ -1,6 +1,6 @@
-# Zephyr STM32 DevContainer Project
+# Zephyr DevContainer Project
 
-This repository is configured to use a development container for Zephyr + STM32 development.
+This repository is configured to use a development container for Zephyr development.
 The goal is that a new user can clone the repo and run the project inside the container without manually installing Zephyr on the host.
 
 ## Requirements
@@ -13,7 +13,7 @@ The goal is that a new user can clone the repo and run the project inside the co
 
 Optional for board flashing:
 - USB access to the target board
-- STM32CubeProgrammer archive
+- Board-specific flash tools, such as STM32CubeProgrammer for STM32 boards
 
 ## Key points
 
@@ -40,13 +40,10 @@ Optional for board flashing:
 
 4. Wait for the container to start and the post-create command to finish.
 
-## If the container build needs STM32CubeProgrammer
+## Optional board-specific tools
 
-This repository currently expects the file:
-
-- `requirement/stm32cubeprog-portable2_20_0.tar.gz`
-
-If that archive is not included in the clone, add it to `requirement/` before rebuilding the container.
+If you build and flash a board that requires a vendor-specific flashing tool, install or provide that tool as needed.
+For example, STM32 boards may require `STM32CubeProgrammer`.
 
 ## Building and flashing
 
@@ -70,6 +67,6 @@ west flash
 
 ## Notes
 
-- The `.gitignore` excludes build folders and the STM32CubeProgrammer archive.
+- The `.gitignore` excludes build folders and the optional flash tool archive.
 - If `dependance/zephyr` is not already present, `west update` will clone Zephyr into `dependance/zephyr`.
 - If you want to use this repo on another machine, make sure the Docker host can access USB devices and the `plugdev` group if needed.
