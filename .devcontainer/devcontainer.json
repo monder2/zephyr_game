@@ -4,11 +4,11 @@
   "service": "zephyr",
   "workspaceFolder": "/workdir",
   "remoteUser": "root",
-  "runArgs": [
-    "--privileged",
-    "--device=/dev/bus/usb:/dev/bus/usb",
-    "--group-add=plugdev"
-  ],
+  // "runArgs": [
+  //   "--privileged",
+  //   "--device=/dev/bus/usb:/dev/bus/usb",
+  //   "--group-add=plugdev"
+  // ],
   "customizations": {
     "vscode": {
       "extensions": [
