@@ -21,5 +21,8 @@
       ]
     }
   },
-  "postCreateCommand": "git config --global --add safe.directory /workdir/dependance/zephyr && if [ ! -d /workdir/dependance/zephyr ]; then west init -l . && west update; fi && source /workdir/dependance/zephyr/zephyr-env.sh"
-}
+"postCreateCommand": [
+"bash",
+"-lc",
+"cd /workdir && (west config manifest.path . && (source dependance/zephyr/zephyr-env.sh || (west init -l . && west update)))"
+]}
