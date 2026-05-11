@@ -8,3 +8,6 @@ applications/*/build/
 dependance/
 
 requirement/stm32cubeprog-portable2_20_0.tar.gz
+
+# The workspace manager
+.west/
