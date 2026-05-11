@@ -21,5 +21,8 @@
       ]
     }
   },
-  "postCreateCommand": "bash -lc 'source /workdir/dependance/zephyr/zephyr-env.sh && west update || true'"
-}
+"postCreateCommand": [
+"bash",
+"-lc",
+"cd /workdir && (west config manifest.path . && (source dependance/zephyr/zephyr-env.sh || (west init -l . && west update)))"
+]}
