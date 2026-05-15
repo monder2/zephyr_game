@@ -3,7 +3,7 @@
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "zephyr",
   "workspaceFolder": "/workdir",
-  "remoteUser": "root",
+  "remoteUser": "user",
   // "runArgs": [
   //   "--privileged",
   //   "--device=/dev/bus/usb:/dev/bus/usb",
@@ -21,5 +21,5 @@
       ]
     }
   },
-"postCreateCommand": "chmod +x ./scripts/setup.sh && ./scripts/setup.sh"
+"postCreateCommand": "chmod +x /workdir/scripts/setup.sh && /workdir/scripts/setup.sh"
 }

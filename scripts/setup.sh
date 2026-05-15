@@ -1,39 +1,52 @@
-
 #!/usr/bin/env bash
+set -e
 
-
-echo "the setup.sh file is being executed"
+echo ">>> [setup.sh] Starting Zephyr environment setup..."
 
 cd /workdir
-if [ ! -f west.yml ]; then
+
+if [ ! -f "west.yml" ]; then
   echo "Error: west.yml not found in /workdir" >&2
   exit 1
 fi
 
-ZEphyr_ENV="/workdir/dependance/zephyr/zephyr-env.sh"
-if [ -f "$ZEphyr_ENV" ] && bash -lc "source '$ZEphyr_ENV'"; then
-  echo "Zephyr env sourced"
-else
-  echo "Sourcing failed or missing — running west init/update"
-  west init -l .
+if [ ! -d "/workdir/.west" ]; then
+  echo ">>> [setup.sh] First run — creating west workspace config..."
 
-# Make sure the workspace contains Git repositories matching the projects in the manifest file
-echo "[setup.sh] Updating west repository"
+  # ✅ FIX: manually create .west/config instead of running west init
+  # This avoids west trying to place .west in the parent directory (/)
+  mkdir -p /workdir/.west
+  cat > /workdir/.west/config <<EOF
+[manifest]
+    path = .
+    file = west.yml
+
+[zephyr]
+    base = dependance/zephyr
+EOF
+
+  echo ">>> [setup.sh] Running west update (this may take a while)..."
   west update
 
-# Install Python dependencies required by Zephyr
-echo "[setup.sh] Installing Python dependencies required by Zephyr"
-pip install -r /workdir/dependance/zephyr/scripts/requirements.txt
+  echo ">>> [setup.sh] Installing Python dependencies required by Zephyr..."
+  pip install -r /workdir/dependance/zephyr/scripts/requirements.txt
 
-# Install Python dependencies required by MCUBoot
-echo "[setup.sh] Installing Python dependencies required by MCUBoot"
-pip install -r /workdir/dependance/mcuboot/scripts/requirements.txt
+  echo ">>> [setup.sh] Installing Python dependencies required by MCUBoot..."
+  pip install -r /workdir/dependance/mcuboot/scripts/requirements.txt
 
-# Export Zephyr-specific build system metadata to the 'workdir' directory
-echo "[setup.sh] Exporting Zephyr-specific build system metadata to the 'workdir' directory"
-west zephyr-export
+  echo ">>> [setup.sh] Exporting Zephyr build system metadata..."
+  west zephyr-export
 
+else
+  echo ">>> [setup.sh] Workspace already initialized — skipping setup."
+
+  ZEPHYR_ENV="/workdir/dependance/zephyr/zephyr-env.sh"
+  if [ -f "$ZEPHYR_ENV" ]; then
+    echo ">>> [setup.sh] Sourcing Zephyr environment..."
+    source "$ZEPHYR_ENV"
+  else
+    echo "Warning: zephyr-env.sh not found — run west update manually." >&2
+  fi
 fi
 
-
-echo "the setup.sh file is end executed"
+echo ">>> [setup.sh] Setup complete! ✅"

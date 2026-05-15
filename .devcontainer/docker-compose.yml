@@ -1,7 +1,8 @@
 services:
   zephyr:
     image: monder87/my-zephyr-dev-env:2.0.4
-    container_name: zephyr-dev
+    container_name: zephyr-dev-Test-Test
+    working_dir: /workdir
     privileged: true
     volumes:
       - ../:/workdir

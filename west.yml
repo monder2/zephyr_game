@@ -2,9 +2,16 @@ manifest:
   version: 0.12
   self:
     path: .
+  defaults:
+    remote: zephyrproject
+  remotes:
+    - name: zephyrproject
+      url-base: https://github.com/zephyrproject-rtos
   projects:
     - name: zephyr
-      url: https://github.com/zephyrproject-rtos/zephyr.git
+      remote: zephyrproject
+      repo-path: zephyr    
       path: dependance/zephyr
       revision: v4.3.0
+      import: true  
       west-commands: scripts/west-commands.yml
