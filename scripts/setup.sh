@@ -29,10 +29,10 @@ EOF
   west update
 
   echo ">>> [setup.sh] Installing Python dependencies required by Zephyr..."
-  pip install -r /workdir/dependance/zephyr/scripts/requirements.txt
+  pip install --user -r /workdir/dependance/zephyr/scripts/requirements.txt
 
   echo ">>> [setup.sh] Installing Python dependencies required by MCUBoot..."
-  pip install -r /workdir/dependance/mcuboot/scripts/requirements.txt
+  pip install --user -r /workdir/dependance/mcuboot/scripts/requirements.txt
 
   echo ">>> [setup.sh] Exporting Zephyr build system metadata..."
   west zephyr-export
